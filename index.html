@@ -1,99 +1,127 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
+
 <html>
-<head>
+  <head>
+ 
+      <link rel="stylesheet" type="text/css" href="example.css" media=”screen” />  
+<title>
+Good day ser
+</title>
 <style type="text/css">
-body {color: white; background: black;}
-div {text-align: center; font-size: 1000%;}
-  
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <center>
-  <style>
-p {
-  display: inline;
-  font-size: 40px;
-  margin-top: 0px;
+  @property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
 }
-</style>
-  
-  </center>
 
-  
-       
-    </head>
-  
-<body>
-  
-  <center>
-  <p id="days"></p>
-    <p id="hours"></p>
-    <p id="mins"></p>
-    <p id="secs"></p>
-    <h2 id="end"></h2>
-  </center>
-    <script>
-    // The data/time we want to countdown to
-    var countDownDate = new Date("December 10, 2022 12:00:01").getTime();
+:root {
+  --card-height: 64.5vh;
+  --card-width: 74.3vh;
+}
 
-    // Run myfunc every second
-    var myfunc = setInterval(function() {
 
-    var now = new Date().getTime();
-    var timeleft = countDownDate - now;
-        
-    // Calculating the days, hours, minutes and seconds left
-    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-        
-    // Result is output to the specific element
-    document.getElementById("days").innerHTML = days + "d "
-    document.getElementById("hours").innerHTML = hours + "h " 
-    document.getElementById("mins").innerHTML = minutes + "m " 
-    document.getElementById("secs").innerHTML = seconds + "s " 
-        
-    // Display the message when countdown is over
-    if (timeleft < 0) {
-        clearInterval(myfunc);
-        document.getElementById("days").innerHTML = ""
-        document.getElementById("hours").innerHTML = "" 
-        document.getElementById("mins").innerHTML = ""
-        document.getElementById("secs").innerHTML = ""
-        document.getElementById("end").innerHTML = "BEGIN!";
-    }
-    }, 1000);
-    </script>
-    
-    
-    </center>
-  
-  
-<center>
-    <h1>Deadcoin</h1>
-  
-     
-</center>
-    
-    
+body {
+  min-height: 100vh;
+  background: BLACK;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+}
 
-        
-<center>        
-       <iframe
-src="https://gateway.ipfscdn.io/ipfs/QmQTQPfoJbAPYAbRqNLmm9gfLspXuXq5TVa8LgQEf6vktt/marketplace.html?contract=0x3638fC7B8159e4d99636BA9D75e669234f89A515&chainId=137&listingId=0"
-width="600px"
-height="600px"
-style="max-width:100%;"
-frameborder="0"
-></iframe>
-  
- <center> 
-   <h1>Sold Out</h1>  
-   
-  </center>
+
+.card {
+  background:URL("https://gateway.pinata.cloud/ipfs/QmP5vXxN6hBZNByaMrCMWQg7RTb6HZ8msrFkyYQ1FiE4BD?_gl=1*1eme5ss*_ga*MTk2NTA3MTU4LjE2NzI0MTAwMDY.*_ga_5RMPXG14TE*MTY3NDcyMjMxOS4xNi4xLjE2NzQ3MjM1MDMuNTYuMC4w");
+
+  top: calc(var(--card-height) / 6);
+  width: 533PX;
+  height:400PX;
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 50%);
+  cursor: pointer;
+  font-family: cursive;
+}
+
+.card:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+.card:hover:before, .card:hover:after {
+  animation:none;URL
+ opacity: 0;
+}
+
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content:"";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+  </style>
+
+
+
+
+
+
+  </head>
+  <body>
+
+<div class="card">
+ 
+</div>
+
+
+
 
 </body>
+
 </html>
