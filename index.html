@@ -74,7 +74,7 @@ body {
     z-index: -1;
     top: -1%;
     left: -2%;
-    animation: spin 2.5s linear infinite;
+    animation: spin 0.5s linear infinite;
 }
 
 .card::after {
@@ -109,17 +109,44 @@ body {
 
 
 
+ 
+<style>
+.loader {
+  border:none
+  border-radius: 50%;
+  border-top: none;
+  border-bottom: none;
+  width: 1200px;
+  height: 1200px;
+  -webkit-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
+}
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
 
 
   </head>
   <body>
+
 
 <div class="card">
  
 </div>
 
 
+<div class="loader">
+
+</div>
 
 
 </body>
